@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aritra De — Customer Success Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --cream: #f6f1e9;
+    --gold: #b8873a;
+    --gold-light: #d4a85a;
+    --green: #1e3d2f;
+    --green-light: #2d5c44;
+    --muted: #6b6455;
+    --border: #ddd8ce;
+    --white: #fdfcf9;
+    --tag-bg: #e8e2d8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(13,13,13,0.97);
+    backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 3rem;
+    border-bottom: 1px solid rgba(184,135,58,0.2);
+  }
+  .nav-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 6rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border: 1px solid rgba(184,135,58,0.12);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -80px; right: 200px;
+    width: 300px; height: 300px;
+    border: 1px solid rgba(184,135,58,0.08);
+    border-radius: 50%;
+  }
+  .hero-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: end;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-title {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #999;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+  }
+  .hero-tagline {
+    font-size: 1.1rem;
+    color: #ccc;
+    max-width: 560px;
+    line-height: 1.8;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+  }
+  .hero-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: flex-end;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: #888;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .hero-contact a { color: var(--gold); text-decoration: none; }
+
+  /* METRICS STRIP */
+  .metrics {
+    background: var(--green);
+    padding: 3rem 4rem;
+  }
+  .metrics-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .metric {
+    text-align: center;
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: default;
+  }
+  .metric:hover {
+    transform: translateY(-4px);
+    border-color: rgba(184,135,58,0.4);
+  }
+  .metric-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .metric-label {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* SECTION WRAPPER */
+  section { padding: 5rem 4rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+  }
+
+  /* VALUE PILLARS */
+  .pillars { background: var(--white); }
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .pillar {
+    padding: 2rem;
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    border-radius: 2px;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+  .pillar:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    transform: translateY(-3px);
+  }
+  .pillar-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+  .pillar h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  .pillar p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* EXPERIENCE TIMELINE */
+  .experience { background: var(--cream); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+  .job {
+    padding: 0 0 3rem 2.5rem;
+    position: relative;
+    cursor: pointer;
+  }
+  .job::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 6px;
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+    transition: transform 0.2s;
+  }
+  .job:hover::before { transform: scale(1.4); }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .job-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .job-company {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .job-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .job-impact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .impact-badge {
+    background: var(--green);
+    color: var(--gold-light);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+  }
+  .job-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .job-details.open { max-height: 600px; }
+  .job-details ul {
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+  .job-details li {
+    font-size: 0.87rem;
+    color: var(--muted);
+    padding: 0.35rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.6;
+  }
+  .job-details li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.75rem;
+  }
+  .expand-hint {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    transition: opacity 0.2s;
+  }
+  .expand-hint:hover { opacity: 0.7; }
+  .expand-arrow { transition: transform 0.3s; display: inline-block; }
+  .open-label .expand-arrow { transform: rotate(180deg); }
+
+  /* SKILLS */
+  .skills-section { background: var(--ink); color: var(--cream); }
+  .skills-section h2 { color: var(--cream); }
+  .skills-section .section-label { color: var(--gold); }
+  .skill-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .skill-cat h4 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #ccc;
+    font-size: 0.78rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2px;
+    transition: background 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .skill-tag:hover {
+    background: rgba(184,135,58,0.15);
+    border-color: rgba(184,135,58,0.4);
+    color: var(--gold-light);
+  }
+
+  /* CERTIFICATIONS */
+  .certs-section { background: var(--white); }
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .cert-item:hover {
+    border-color: var(--gold);
+    transform: translateX(4px);
+  }
+  .cert-icon {
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .cert-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .cert-issuer {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-top: 0.2rem;
+  }
+
+  /* NRR FRAMEWORK */
+  .framework { background: var(--green); color: var(--cream); }
+  .framework h2 { color: var(--cream); }
+  .framework .section-label { color: var(--gold); }
+  .framework-flow {
+    display: flex;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .flow-step {
+    flex: 1;
+    padding: 2rem 1.5rem;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .flow-step:last-child { border-right: none; }
+  .flow-step:hover { background: rgba(255,255,255,0.04); }
+  .flow-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: rgba(184,135,58,0.2);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .flow-step h4 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    color: var(--gold-light);
+  }
+  .flow-step p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: #555;
+    text-align: center;
+    padding: 2.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.25s; }
+  .delay-3 { animation-delay: 0.4s; }
+  .delay-4 { animation-delay: 0.55s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 4rem 1.5rem 3rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-contact { align-items: flex-start; }
+    section { padding: 3.5rem 1.5rem; }
+    .metrics { padding: 2rem 1.5rem; }
+    .metrics-inner { grid-template-columns: repeat(2, 1fr); }
+    .pillar-grid { grid-template-columns: 1fr; }
+    .skill-categories { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .framework-flow { flex-direction: column; }
+    .flow-step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Aritra De</div>
+  <div class="nav-links">
+    <a href="#pillars">Value Pillars</a>
+    <a href="#experience">Experience</a>
+    <a href="#framework">NRR Framework</a>
+    <a href="#skills">Skills</a>
+    <a href="#certs">Certifications</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow animate delay-1">Customer Success Portfolio · 2026</div>
+      <h1 class="animate delay-2">Aritra <em>De</em></h1>
+      <div class="hero-title animate delay-2">Customer Success · Technical Onboarding · NRR Growth</div>
+      <p class="hero-tagline animate delay-3">
+        10+ years turning complex enterprise technology into measurable customer outcomes —
+        reducing churn, deepening adoption, and building the kind of trust that converts
+        renewals into expansions.
+      </p>
+    </div>
+    <div class="hero-contact animate delay-4">
+      <span>Kolkata, India</span>
+      <a href="mailto:aritrajob79@gmail.com">aritrajob79@gmail.com</a>
+      <span>+91 9147116011</span>
+      <a href="https://linkedin.com/in/itsmearitrade/" target="_blank">linkedin.com/in/itsmearitrade</a>
+    </div>
+  </div>
+</div>
+
+<!-- METRICS -->
+<div class="metrics">
+  <div class="metrics-inner">
+    <div class="metric">
+      <div class="metric-num">10+</div>
+      <div class="metric-label">Years in Enterprise Customer Success</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">$13M+</div>
+      <div class="metric-label">ARR Managed Across Portfolios</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">30%</div>
+      <div class="metric-label">Reduction in Onboarding Setup Time</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">11</div>
+      <div class="metric-label">Enterprise Certifications (VMware · Nutanix · Veeam)</div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUE PILLARS -->
+<section class="pillars" id="pillars">
+  <div class="section-inner">
+    <div class="section-label">Strategic Value</div>
+    <h2>What I Bring to Your Customers</h2>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-icon">📉</div>
+        <h3>Churn Prevention</h3>
+        <p>I identify risk signals early — low adoption, underutilized licenses, unresolved escalations — and intervene with targeted engagement before churn becomes inevitable. Proactive beats reactive, always.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🚀</div>
+        <h3>Adoption & Time-to-Value</h3>
+        <p>I compress the gap between purchase and realized value through structured onboarding, feature enablement, and training that empowers users — not just admins — to extract full product value.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">💰</div>
+        <h3>NRR & Expansion</h3>
+        <p>Renewals are earned, not assumed. I build the usage narratives, ROI stories, and stakeholder trust that make expansion conversations natural — turning satisfied customers into advocates and upsell opportunities.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🔗</div>
+        <h3>Long-Term Relationship Architecture</h3>
+        <p>I map and nurture every stakeholder layer — champion, economic buyer, technical user — ensuring no single relationship becomes a single point of failure. Trust is distributed, not concentrated.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🛠️</div>
+        <h3>Technical Enablement</h3>
+        <p>With deep hands-on expertise across VMware, Nutanix, Veeam, and cloud infrastructure, I close the gap between what customers bought and how they use it — turning complexity into confidence.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📣</div>
+        <h3>Voice of the Customer → Product</h3>
+        <p>I systematically capture feedback, pattern-match across accounts, and translate customer pain into product intelligence — contributing to roadmap decisions and market positioning that keep us ahead.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NRR FRAMEWORK -->
+<section class="framework" id="framework">
+  <div class="section-inner">
+    <div class="section-label">My Approach</div>
+    <h2>The Customer Delight → NRR Engine</h2>
+    <div class="framework-flow">
+      <div class="flow-step">
+        <div class="flow-num">01</div>
+        <h4>Land Well</h4>
+        <p>Structured technical onboarding with clear milestones. Reduce deployment cycles. Ensure customers are live and succeeding fast.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">02</div>
+        <h4>Enable Deeply</h4>
+        <p>Feature adoption programs, interactive training, and effort-reduction playbooks that help customers extract more from what they paid for.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">03</div>
+        <h4>Protect & Expand</h4>
+        <p>License utilization tracking, EBR-ready ROI narratives, and proactive risk mitigation that secure renewals and open expansion doors.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">04</div>
+        <h4>Delight & Retain</h4>
+        <p>Build relationships at every stakeholder layer. Turn customers into advocates. Make churn the path of most resistance.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">05</div>
+        <h4>Feed the Product</h4>
+        <p>Systematize VOC collection. Convert customer insight into product roadmap input, improving positioning and reducing future friction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="section-inner">
+    <div class="section-label">Career History</div>
+    <h2>Experience</h2>
+    <div class="timeline">
+
+      <!-- Veeam -->
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Customer Success Technical Onboarding Manager</div>
+            <div class="job-company">Veeam Software</div>
+          </div>
+          <div class="job-date">Apr 2025 – Jan 2026 · Remote, India</div>
+        </div>
+        <div class="job-impact">
+          <span class="impact-badge">~$8–10M ARR Portfolio</span>
+          <span class="impact-badge">30% Faster Onboarding</span>
+          <span class="impact-badge">Churn Reduction</span>
+          <span class="impact-badge">Expansion Enablement</span>
+        </div>
+        <div class="expand-hint" onclick="toggleJob(this)">
+          <span class="label-text">View impact details</span>
+          <span class="expand-arrow">↓</span>
+        </div>
+        <div class="job-details">
+          <ul>
+            <li>Managed post-sales technical onboarding for customers representing ~$8–10M ARR, directly protecting renewal and expansion outcomes across the Veeam portfolio.</li>
+            <li>Reduced customer setup time by 30% through tailored, scalable onboarding processes — accelerating time-to-value and improving initial satisfaction scores.</li>
+            <li>Optimized license utilization to ensure customers realized the full value of their purchased capacity, increasing renewal likelihood and reducing underutilization risk.</li>
+            <li>Implemented proactive engagement strategies — health score monitoring, adoption milestones, and risk flagging — that measurably reduced churn signals.</li>
+            <li>Developed interactive training materials that drove measurable improvements in product adoption and self-sufficiency across technical and business stakeholders.</li>
+            <li>Coordinated cross-functional teams (Sales, Support, Engineering) to streamline escalation resolution, reducing response times and customer friction.</li>
+            <li>Delivered data resilience outcomes through targeted configuration and policy guidance, turning technical complexity into customer confidence.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Nutanix -->
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Senior Technical Account Manager</div>
+            <div class="job-company">Nutanix Technologies India</div>
+          </div>
+          <div class="job-date">Feb 2024 – Apr 2025 · Pune, India</div>
+        </div>
+        <div class="job-impact">
+          <span class="impact-badge">$4.75M ARR Portfolio</span>
+          <span class="impact-badge">Banking & Fintech</span>
+          <span class="impact-badge">Retention & Expansion</span>
+          <span class="impact-badge">Analytics-Driven Support</span>
+        </div>
+        <div class="expand-hint" onclick="toggleJob(this)">
+          <span class="label-text">View impact details</span>
+          <span class="expand-arrow">↓</span>
+        </div>
+        <div class="job-details">
+          <ul>
+            <li>Owned renewals, retention, and expansion for a $4.75M ARR portfolio of major banking and fintech accounts — among the most risk-sensitive, compliance-driven environments in enterprise IT.</li>
+            <li>Led strategic account planning to align Nutanix technical roadmaps with client business timelines and digital transformation objectives.</li>
+            <li>Managed high-priority escalations as primary technical contact, restoring service continuity and preserving client relationships during critical incidents.</li>
+            <li>Implemented analytics-driven monitoring frameworks to enable proactive support, reduce system outages, and shift client perception from reactive vendor to strategic partner.</li>
+            <li>Orchestrated cross-departmental workshops to address complex, multi-team client challenges — reducing resolution times and strengthening inter-team cohesion.</li>
+            <li>Analyzed client feedback to refine service delivery strategies, directly contributing to measurable improvements in customer loyalty and NPS outcomes.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- VMware -->
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Escalations Engineer / TSE 2</div>
+            <div class="job-company">VMware by Broadcom</div>
+          </div>
+          <div class="job-date">Jan 2021 – Feb 2024 · Remote, India</div>
+        </div>
+        <div class="job-impact">
+          <span class="impact-badge">Escalation Leadership</span>
+          <span class="impact-badge">Uptime Improvement</span>
+          <span class="impact-badge">Mentorship</span>
+          <span class="impact-badge">Process Design</span>
+        </div>
+        <div class="expand-hint" onclick="toggleJob(this)">
+          <span class="label-text">View impact details</span>
+          <span class="expand-arrow">↓</span>
+        </div>
+        <div class="job-details">
+          <ul>
+            <li>Led backline escalation handling for critical VMware environments, measurably reducing resolution times for high-severity incidents across production systems.</li>
+            <li>Designed incident response processes that reduced recurring escalation patterns and improved overall operational efficiency for support teams.</li>
+            <li>Implemented proactive monitoring tools to accelerate issue detection and minimize downtime — translating technical reliability into customer trust.</li>
+            <li>Mentored junior engineers, elevating team technical competency and performance culture.</li>
+            <li>Analyzed incident trend data to develop proactive intervention strategies, significantly reducing escalation frequency and operational instability over time.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- HPE -->
+      <div class="job">
+        <div class="job-header">
+          <div>
+            <div class="job-title">Technical Solutions Consultant</div>
+            <div class="job-company">Hewlett-Packard Enterprise</div>
+          </div>
+          <div class="job-date">Dec 2017 – Jan 2021 · Bangalore, India</div>
+        </div>
+        <div class="job-impact">
+          <span class="impact-badge">ProLiant Server Platforms</span>
+          <span class="impact-badge">Windows / Linux / VMware</span>
+          <span class="impact-badge">CX Ownership</span>
+        </div>
+        <div class="expand-hint" onclick="toggleJob(this)">
+          <span class="label-text">View impact details</span>
+          <span class="expand-arrow">↓</span>
+        </div>
+        <div class="job-details">
+          <ul>
+            <li>Managed end-to-end hardware break-fix for ProLiant servers across Windows, Linux, and VMware platforms, improving resolution workflow efficiency at scale.</li>
+            <li>Led escalated technical calls as customer experience manager, actively reducing repeat escalations and preserving client relationships through empathetic resolution.</li>
+            <li>Documented hardware and platform resolutions to standardize team procedures and accelerate technician onboarding — a direct investment in organizational knowledge retention.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-inner">
+    <div class="section-label">Capabilities</div>
+    <h2>Skills & Tools</h2>
+    <div class="skill-categories">
+      <div class="skill-cat">
+        <h4>Customer Success</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">NRR Optimization</span>
+          <span class="skill-tag">Churn Reduction</span>
+          <span class="skill-tag">Adoption Programs</span>
+          <span class="skill-tag">Stakeholder Management</span>
+          <span class="skill-tag">Account Planning</span>
+          <span class="skill-tag">EBR / QBR</span>
+          <span class="skill-tag">VOC → Product Feedback</span>
+          <span class="skill-tag">Risk Mitigation</span>
+          <span class="skill-tag">Customer Advocacy</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Technical Expertise</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">VMware vSphere</span>
+          <span class="skill-tag">Nutanix HCI</span>
+          <span class="skill-tag">Veeam Backup</span>
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">Azure</span>
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">NSX-T</span>
+          <span class="skill-tag">vSAN</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">SQL / Postgres</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h4>Observability & Operations</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Grafana</span>
+          <span class="skill-tag">Prometheus</span>
+          <span class="skill-tag">IBM QRadar</span>
+          <span class="skill-tag">Splunk</span>
+          <span class="skill-tag">Escalation Management</span>
+          <span class="skill-tag">Incident Response</span>
+          <span class="skill-tag">Training & Mentoring</span>
+          <span class="skill-tag">Strategic Planning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certs-section" id="certs">
+  <div class="section-inner">
+    <div class="section-label">Credentials</div>
+    <h2>Certifications</h2>
+    <div class="cert-grid">
+      <div class="cert-item"><div class="cert-icon">🟢</div><div><div class="cert-name">Veeam Certified Engineer (VMCE)</div><div class="cert-issuer">Veeam Software</div></div></div>
+      <div class="cert-item"><div class="cert-icon">🔵</div><div><div class="cert-name">NCP - Multicloud Infrastructure (NCP-MCI)</div><div class="cert-issuer">Nutanix</div></div></div>
+      <div class="cert-item"><div class="cert-icon">🔵</div><div><div class="cert-name">NCP - Unified Storage 6</div><div class="cert-issuer">Nutanix</div></div></div>
+      <div class="cert-item"><div class="cert-icon">🔵</div><div><div class="cert-name">NCP - Cloud Integration (NCP-CI-Azure)</div><div class="cert-issuer">Nutanix</div></div></div>
+      <div class="cert-item"><div class="cert-icon">🟣</div><div><div class="cert-name">VMware Certified Specialist – Cloud Foundation (VCF)</div><div class="cert-issuer">VMware by Broadcom</div></div></div>
+      <div class="cert-item"><div class="cert-icon">🟣</div><div><div class="cert-name">VMware Certified Implementation Expert (VCIX-DCV)</div><div class="cert-issuer">VMware by Broadcom</div></div></div>
+      <div class="cert-item"><div class="cert-icon">🟣</div><div><div class="cert-name">VCP – Network Virtualization (VCP-NV) NSX-T</div><div class="cert-issuer">VMware by Broadcom</div></div></div>
+      <div class="cert-item"><div class="cert-icon">🟣</div><div><div class="cert-name">VMware Certified Specialist – vSphere with Tanzu</div><div class="cert-issuer">VMware by Broadcom</div></div></div>
+      <div class="cert-item"><div class="cert-icon">🟣</div><div><div class="cert-name">VMware Certified Specialist – vSAN</div><div class="cert-issuer">VMware by Broadcom</div></div></div>
+      <div class="cert-item"><div class="cert-icon">🟣</div><div><div class="cert-name">VMware Certified Master Specialist – VMware Cloud on AWS</div><div class="cert-issuer">VMware by Broadcom</div></div></div>
+      <div class="cert-item"><div class="cert-icon">🔷</div><div><div class="cert-name">Microsoft Azure Fundamentals (AZ-900)</div><div class="cert-issuer">Microsoft</div></div></div>
+      <div class="cert-item"><div class="cert-icon">🤖</div><div><div class="cert-name">Google AI Essentials</div><div class="cert-issuer">Google</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Aritra De · Customer Success Leader · <a href="mailto:aritrajob79@gmail.com">aritrajob79@gmail.com</a> · <a href="https://linkedin.com/in/itsmearitrade/" target="_blank">LinkedIn</a></p>
+  <p style="margin-top:0.5rem; color:#333;">Built as a living portfolio · 2026</p>
+</footer>
+
+<script>
+  function toggleJob(el) {
+    const details = el.nextElementSibling;
+    const isOpen = details.classList.contains('open');
+    details.classList.toggle('open', !isOpen);
+    el.classList.toggle('open-label', !isOpen);
+    const labelText = el.querySelector('.label-text');
+    labelText.textContent = isOpen ? 'View impact details' : 'Hide details';
+  }
+
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pillar, .metric, .cert-item, .flow-step').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
